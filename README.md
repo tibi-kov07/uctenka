@@ -4,8 +4,10 @@
 Jednoduchý konzolový nástroj pro generování a tisk nákupních účtenek v Javě.
 
 ## Autoři
-* **Jméno Příjmení 1** (GitHub: @tibi-kov07)
-* **Jméno Příjmení 2** (GitHub: @uzivatel2)
+* **Kováč** (GitHub: @tibi-kov07)
+* **Šonka** (GitHub: @petson007)
+* **Horvathova** (GitHub: @horl228)
+* **Klubal** (GitHub: @An)
 
 ## Verze
 1.0.0 (Sémantické verzování)
