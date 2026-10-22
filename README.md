@@ -7,7 +7,7 @@ Jednoduchý konzolový nástroj pro generování a tisk nákupních účtenek v 
 * **Kováč** (GitHub: @tibi-kov07)
 * **Šonka** (GitHub: @petson007)
 * **Horvathova** (GitHub: @horl228)
-* **Klubal** (GitHub: @An)
+* **Klubalová** (GitHub: @An)
 
 ## Verze
 1.0.0 (Sémantické verzování)
