@@ -1,44 +1,26 @@
 package cz.uctenka;
 
-import java.util.Scanner;
+import org.junit.jupiter.api.Test;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("=== Spouštím tisk účtenky (v1.0.0) ===");
-        StoreConfig config = new StoreConfig();
-        Receipt receipt = new Receipt(config);
-        Scanner scanner = new Scanner(System.in);
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-        while (true) {
-            System.out.print("Zadejte název položky:");
-            String name = scanner.nextLine().trim();
-            if (name.equalsIgnoreCase("konec")) {
-                break;
-            }
+public class ReceiptTest {
 
-            while (true) {
-                try {
-                    System.out.print("Zadejte cenu za jednotku (Kč): ");
-                    double price = parsePrice(scanner.nextLine());
+    @Test
+    public void testCalculateTotal() {
+        StoreConfig mockConfig = new StoreConfig() {
+            @Override public String getName() { return "Test Shop"; }
+            @Override public String getAddress() { return "Test Address"; }
+            @Override public String getIco() { return "00000000"; }
+            @Override public String getDic() { return "CZ00000000"; }
+        };
 
-                    System.out.print("Zadejte množství: ");
-                    int quantity = Integer.parseInt(scanner.nextLine().trim());
+        Receipt receipt = new Receipt(mockConfig);
+        receipt.addItem("Rohlík", 3.0, 5);
+        receipt.addItem("Mléko", 25.0, 2);
+        receipt.addItem("Kuřecí prsa", 60.0, 1);
+        receipt.addItem("Pasta na zuby", 45.0, 1);
 
-                    receipt.addItem(name, price, quantity);
-                    System.out.println("Položka přidána.\n");
-                    break;
-                } catch (NumberFormatException e) {
-                    System.out.println("Neplatné číslo. Zadejte hodnotu znovu.");
-                }
-            }
-        }
-
-        System.out.println("\n\n" + receipt.generatePrintout());
-        scanner.close();
-    }
-
-    private static double parsePrice(String rawValue) {
-        String normalizedValue = rawValue.trim().replace(',', '.');
-        return Double.parseDouble(normalizedValue);
+        assertEquals(170.0, receipt.calculateTotal(), 0.001);
     }
 }
