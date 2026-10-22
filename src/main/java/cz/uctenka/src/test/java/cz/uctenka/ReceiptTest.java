@@ -20,6 +20,6 @@ public class ReceiptTest {
         receipt.addItem("Kuřecí prsa", 60.0, 1);
         receipt.addItem("Pasta na zuby", 45.0, 1);
 
-        assertEquals(65.0, receipt.calculateTotal(), 0.001);
+        assertEquals(170.0, receipt.calculateTotal(), 0.001);
     }
 }
