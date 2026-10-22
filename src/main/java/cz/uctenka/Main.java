@@ -10,7 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Zadejte název položky (nebo 'konec' pro vydání účtenky): ");
+            System.out.print("Zadejte název položky:");
             String name = scanner.nextLine();
             if (name.equalsIgnoreCase("konec")) {
                 break;
